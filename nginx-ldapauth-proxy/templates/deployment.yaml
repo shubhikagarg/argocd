@@ -18,7 +18,7 @@ spec:
       labels:
         app: {{ template "nginx-ldapauth-proxy.name" . }}
         release: {{ .Release.Name }}
-        configRevision : {{ .Values.configRevision}}
+        configRevision : "{{ .Values.configRevision}}"
       annotations:
         checksum/config: {{ include (print .Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
